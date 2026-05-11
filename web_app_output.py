@@ -17,10 +17,10 @@ with st.sidebar:
     
     # 對應變數: prob, significant_level, draw_times
     prob = st.number_input("官方機率 (例如 0.02 = 2%)", min_value=0.0001, max_value=1.0, value=0.02, step=0.01, format="%.4f")
-    significant_level = st.number_input("顯著水準 α", min_value=0.00001, max_value=0.1, value=0.05, step=0.01, format="%.3f")
+    significant_level = st.slider("顯著水準 α", min_value=0.0001, max_value=0.1000, value=0.0500, step=0.0001, format="%.4f")
     draw_times = st.number_input("總抽獎次數", min_value=1, value=1000, step=10)
     
-    st.info(f"💡 提示：顯著水準 α 越小 (例如 {significant_level})，對「造假」的指控標準越嚴格，合理範圍會越寬。")
+    st.info(f"💡 提示：顯著水準 α 越小 (例如 0.0001)，對「造假」的指控標準越嚴格，合理範圍會越寬。目前設定為 {significant_level:.4f}。")
 
 # ==========================================
 # 3. 建立共用的報告顯示函式 (避免重複寫程式碼)
